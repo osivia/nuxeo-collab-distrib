@@ -64,8 +64,13 @@
             ],
             "type" : "elision"
          },
+	     "3_10_edgegrams_filter": {
+	        "type": "edge_ngram",
+	        "min_gram": 3,
+	        "max_gram": 10
+	     },
          "fr_stem_filter" : {
-            "name" : "light_french",
+            "name" : "french",
             "type" : "stemmer"
          },
          "fr_stop_filter" : {
@@ -101,7 +106,7 @@
             "filter" : [
                "fr_elision_filter",
                "icu_folding",
-               "fr_stem_filter"
+               "3_10_edgegrams_filter"
             ]
          },
          "lit_fr_analyzer" : {

@@ -45,7 +45,9 @@
          },
          "word_delimiter_filter" : {
            "type" : "word_delimiter",
-           "preserve_original" : true
+           "split_on_numerics" : false,
+           "split_on_case_change" : false,
+           "preserve_original" : false
          },
          "en_stem_filter" : {
             "name" : "minimal_english",
@@ -64,10 +66,10 @@
             ],
             "type" : "elision"
          },
-	     "3_10_edgegrams_filter": {
+	     "edgegrams_filter": {
 	        "type": "edge_ngram",
-	        "min_gram": 3,
-	        "max_gram": 10
+	        "min_gram": 2,
+	        "max_gram": 25
 	     },
          "fr_stem_filter" : {
             "name" : "french",
@@ -106,7 +108,8 @@
             "filter" : [
                "fr_elision_filter",
                "icu_folding",
-               "3_10_edgegrams_filter"
+               "word_delimiter_filter",
+               "edgegrams_filter"
             ]
          },
          "lit_fr_analyzer" : {
@@ -115,7 +118,8 @@
             "tokenizer" : "icu_tokenizer",
             "filter" : [
                "fr_elision_filter",
-               "icu_folding"
+               "icu_folding",
+               "word_delimiter_filter"
             ]
          },
          "path_analyzer" : {

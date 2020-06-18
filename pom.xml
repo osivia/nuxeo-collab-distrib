@@ -216,6 +216,13 @@
 			<artifactId>nuxeo-annot-repo</artifactId>
 			<version>${nuxeo.version}</version>
 		</dependency>
+		
+		<!-- Agenda -->
+		<dependency>
+			<groupId>org.nuxeo.ecm.platform</groupId>
+			<artifactId>nuxeo-agenda</artifactId>
+			<version>${nuxeo.version}</version>
+		</dependency>
 
 		<!-- Imaging -->
 		<dependency>

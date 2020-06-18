@@ -62,9 +62,9 @@
 			<unpack>false</unpack>
 			<scope>runtime</scope>
 			<includes>
-				<!-- Nuxeo Agenda 
+				<!-- Nuxeo Agenda --> 
 				<include>org.nuxeo.ecm.platform:nuxeo-agenda:jar:${nuxeo.version}
-				</include>-->
+				</include>
 				<!-- DAM -->
 				<include>org.nuxeo.ecm.annot:nuxeo-annot-api:jar:${nuxeo.version}
 				</include>

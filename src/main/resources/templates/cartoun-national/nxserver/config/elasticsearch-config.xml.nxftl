@@ -1,27 +1,58 @@
-<component name="org.osivia.elasticsearch.dafpic">
+<#escape x as x?xml>
+<?xml version="1.0"?>
+<component name="cartographie.nationale.elasticsearch.contrib">
 
-  <require>org.nuxeo.elasticsearch.defaultConfig</require>
-  
+  <require>org.nuxeo.elasticsearch.ElasticSearchComponent</require>
+
+<#if "${elasticsearch.addressList}" == "">
+  <extension target="org.nuxeo.elasticsearch.ElasticSearchComponent"
+    point="elasticSearchLocal">
+    <elasticSearchLocal
+      clusterName="${elasticsearch.clusterName}"
+      nodeName="${elasticsearch.nodeName}"
+      pathData="${nuxeo.data.dir}/elasticsearch"
+      pathLogs="${nuxeo.log.dir}/elasticsearch"
+      httpEnabled="${elasticsearch.httpEnabled}" />
+  </extension>
+<#else>
+  <extension target="org.nuxeo.elasticsearch.ElasticSearchComponent"
+    point="elasticSearchRemote">
+    <elasticSearchRemote
+      clusterName="${elasticsearch.clusterName}"
+      addressList="${elasticsearch.addressList}"
+      clientTransportSniff="false"
+      clientTransportIgnoreClusterName="false"
+      clientTransportPingTimeout="5s"
+      clientTransportNodesSamplerInterval="5s" />
+  </extension>
+</#if>
+
   <extension target="org.nuxeo.elasticsearch.ElasticSearchComponent"
     point="elasticSearchIndex">
-    
     <elasticSearchIndex name="${elasticsearch.indexName}" type="doc" repository="default">
-    
-    <fetchFromSource>
+      <fetchFromSource>
         <include>ecm:*</include>
         <include>dc:*</include>
+        <include>common:*</include>
+        <include>note:*</include>
+        <include>webc:*</include>
         <include>ttc:*</include>
         <include>ttcn:*</include>
-        <include>stage:*</include>
-        <include>formation:*</include>
-        <include>contactagence:*</include>
-        <include>contact:*</include>
-        <include>structure:*</include>
-        <include>ottcweb:*</include>
-        <include>ottcwebc:*</include>
         <include>rg:*</include>
+        <include>annonce:*</include>
+        <include>unum:*</include>
+        <include>acrp:*</include>
+        <include>bape:*</include>
+        <include>etb:*</include>
+        <include>dun:*</include>
+        <include>unula:*</include>
+        <include>files:*</include>
+        <include>lk:*</include>
+        <include>vevent:*</include>
+        <include>zoom:*</include>
+        
         <exclude>ecm:binarytext</exclude>
-    </fetchFromSource>
+      </fetchFromSource>
 
       <settings>
 {
@@ -34,10 +65,6 @@
          "truncate_filter" : {
             "length" : 256,
             "type" : "truncate"
-         },
-         "word_delimiter_filter" : {
-           "type" : "word_delimiter",
-           "preserve_original" : true
          },
          "en_stem_filter" : {
             "name" : "minimal_english",
@@ -63,7 +90,7 @@
             "type" : "elision"
          },
          "fr_stem_filter" : {
-            "name" : "light_french",
+            "name" : "minimal_french",
             "type" : "stemmer"
          },
          "fr_stop_filter" : {
@@ -82,7 +109,6 @@
       "analyzer" : {
          "en_analyzer" : {
             "filter" : [
-               "word_delimiter_filter",
                "lowercase",
                "en_stop_filter",
                "en_stem_filter",
@@ -94,7 +120,6 @@
          "fr_analyzer" : {
             "alias" : "fulltext",
             "filter" : [
-               "word_delimiter_filter",
                "lowercase",
                "fr_stop_filter",
                "fr_stem_filter",
@@ -130,46 +155,26 @@
    "_all" : {
       "analyzer" : "fulltext"
    },
-   "dynamic_templates": [ {
-      "no_thumbnail_template": {
-         "path_match": "thumb:thumbnail.*",
-         "mapping": {
-             "index": "no",
-             "include_in_all": false
-            }
-         }
-      }, {
-      "no_picture_template": {
-         "path_match": "picture:views.*",
-         "mapping": {
-            "index": "no",
-            "include_in_all": false
-          }
-       }
-   } ],
    "properties" : {
       "dc:title" : {
          "type" : "multi_field",
          "fields" : {
            "dc:title" : {
+             "index" : "analyzed",
              "type" : "string"
            },
            "fulltext" : {
              "boost": 2,
              "type": "string",
              "analyzer" : "fulltext"
-          },
-        "lowercase" : {
-            "type":"string",
-            "analyzer" : "lowercase_analyzer"       
-        }
+          }
         }
       },
       "dc:description" : {
          "type" : "multi_field",
          "fields" : {
            "dc:description" : {
-             "index" : "no",
+             "index" : "analyzed",
              "include_in_all" : true,
              "type" : "string"
            },
@@ -185,7 +190,7 @@
          "fields" : {
            "note:note" : {
              "index" : "no",
-             "include_in_all" : true,
+             "include_in_all" : "true",
              "type" : "string"
            },
            "fulltext" : {
@@ -194,48 +199,80 @@
           }
         }
       },
-        "contactagence:firstName" : {
+      "webp:content" : {
          "type" : "multi_field",
          "fields" : {
-           "contactagence:firstName" : {
+           "webp:content" : {
+             "index" : "no",
+             "include_in_all" : "true",
              "type" : "string"
            },
            "fulltext" : {
-             "boost": 2,
              "type": "string",
              "analyzer" : "fulltext"
-          },
-        "lowercase" : {
-            "type":"string",
-            "analyzer" : "lowercase_analyzer"       
-        }
+          } 
         }
       },
-    "contactagence:lastName" : {
+      "webc:welcomeText" : {
          "type" : "multi_field",
          "fields" : {
-           "contactagence:lastName" : {
+           "webc:welcomeText" : {
+             "index" : "no",
+             "include_in_all" : "true",
              "type" : "string"
            },
            "fulltext" : {
-             "boost": 2,
              "type": "string",
              "analyzer" : "fulltext"
-          },
-        "lowercase" : {
-            "type":"string",
-            "analyzer" : "lowercase_analyzer"       
-        }
+          } 
         }
       },
-      "stage:refFormation": {
-         "type": "string",
-         "index": "not_analyzed"
+      "comment:comment" : {
+         "type" : "multi_field",
+         "fields" : {
+           "comment:comment" : {
+             "index" : "analyzed",
+             "include_in_all" : true,
+             "type" : "string"
+           },
+           "fulltext" : {
+             "type": "string",
+             "analyzer" : "fulltext"
+          } 
+        }
+      },
+      "mail:mail" : {
+         "type" : "multi_field",
+         "fields" : {
+           "mail:mail" : {
+             "index" : "no",
+             "include_in_all" : "true",
+             "type" : "string"
+           },
+           "fulltext" : {
+             "type": "string",
+             "analyzer" : "fulltext"
+          } 
+        }
       },
       "ecm:binarytext" : {
          "type" : "string",
          "index" : "no",
          "include_in_all" : true
+      },
+      "unum:scenario" : {
+         "type" : "multi_field",
+         "fields" : {
+           "unum:scenario" : {
+             "index" : "no",
+             "include_in_all" : "true",
+             "type" : "string"
+           },
+           "fulltext" : {
+             "type": "string",
+             "analyzer" : "fulltext"
+          }
+        }
       },
       "ecm:path" : {
          "type" : "multi_field",
@@ -254,22 +291,39 @@
       "ecm:pos": {
          "type": "integer"
       },
+      "ttc:tabOrder": {
+         "type": "integer"
+      },
       "dc:created": {
          "format": "dateOptionalTime",
-         "type": "date"
+        "type": "date"
       },
       "dc:modified": {
          "format": "dateOptionalTime",
-         "type": "date"
+        "type": "date"
+      },
+      "ttc:webid" : {
+         "type" : "string",
+         "index" : "not_analyzed"
       },
       "common:icon": {
          "type": "string",
          "index" : "no",
          "include_in_all" : false
+      },
+      "etb:postalCode" : {
+         "type" : "integer"
+      },
+      "etb:ENTOrganisationGeoLoc" : {
+         "type" : "double"
       }
    }
 }
       </mapping>
+
     </elasticSearchIndex>
   </extension>
+
 </component>
+</#escape>
+

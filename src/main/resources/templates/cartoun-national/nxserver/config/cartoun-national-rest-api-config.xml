@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<component name="cartographie.nationale.rest.api.contrib">
+
+   <require>org.nuxeo.ecm.automation.server.AutomationServer</require>
+   <require>org.nuxeo.ecm.automation.server.bindings</require>
+   <require>fr.toutatice.ecm.elasticsearch.automation.contrib</require>
+
+   <extension target="org.nuxeo.ecm.automation.server.AutomationServer" point="bindings">
+
+      <binding name="Notification.SendMail">
+         <administrator>true</administrator>
+         <groups>Administrators</groups>
+      </binding>
+
+      <binding name="Document.ReIndexES">
+         <administrator>true</administrator>
+         <groups>Administrators</groups>
+      </binding>
+
+   </extension>
+
+</component>

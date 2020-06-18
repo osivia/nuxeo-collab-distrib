@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<component name="cartographie.nationale.pictures.contrib">
+
+   <require>org.nuxeo.ecm.platform.pictures.tiles.service.PictureTilingComponent</require>
+
+   <extension point="environment" target="org.nuxeo.ecm.platform.pictures.tiles.service.PictureTilingComponent">
+
+      <environment>
+         <parameters>
+            <!-- ImageMagick path variables -->
+            <parameter name="IMConvert">${nuxeo.imagemagick.IMConvert}</parameter>
+            <parameter name="IMIdentify">${nuxeo.imagemagick.IMIdentify}</parameter>
+            <parameter name="IMStream">${nuxeo.imagemagick.IMStream}</parameter>
+         </parameters>
+      </environment>
+
+   </extension>
+
+</component>
+

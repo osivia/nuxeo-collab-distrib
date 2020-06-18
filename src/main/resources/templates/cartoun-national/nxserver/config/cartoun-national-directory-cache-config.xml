@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<component name="fr.toutatice.carto.directory.cache.config">
+
+  <require>org.nuxeo.ecm.core.cache.config</require>
+
+  <extension target="org.nuxeo.ecm.core.cache.CacheService"
+    point="caches">
+
+	<cache name="default-sql-directory-cache" class="org.nuxeo.ecm.core.cache.InMemoryCacheImpl">
+      <ttl>20</ttl><!-- minutes -->
+      <option name="maxSize">200</option>
+      <option name="concurrencyLevel">500</option>
+    </cache>
+
+	<cache name="default-sql-directory-cache-without-references" class="org.nuxeo.ecm.core.cache.InMemoryCacheImpl">
+      <ttl>20</ttl><!-- minutes -->
+      <option name="maxSize">100</option>
+      <option name="concurrencyLevel">500</option>
+    </cache>
+
+   </extension>
+
+</component>

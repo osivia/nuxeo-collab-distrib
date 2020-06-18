@@ -3,25 +3,26 @@
 
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>fr.acrennes.greta</groupId>
-	<artifactId>greta-nx-distrib</artifactId>
-	<version>4.2--SNAPSHOT</version>
-	<name>Greta nuxeo distribution</name>
+	<groupId>fr.education.cartoun</groupId>
+	<artifactId>cartoun-nx-distrib</artifactId>
+	<version>4.2-SNAPSHOT</version>
+	<name>Cartoun nuxeo distribution</name>
 	<packaging>pom</packaging>
 
 	<properties>
-		<nuxeo.version>6.1.2</nuxeo.version>
+		<nuxeo.version>6.1.3</nuxeo.version>
 		<opentoutatice.version>4.2.25</opentoutatice.version>
+		<ottc.collab.version>3.2.4-RC01</ottc.collab.version>
 		<ottc.es.version>1.2</ottc.es.version>
-		
-		<ottc.notif.version>1.2.0-RC01</ottc.notif.version>
+		<ottc.es.custom.version>4.2</ottc.es.custom.version>
+		<ottc.filenaming.version>4.7.17</ottc.filenaming.version>
+		<ottc.notif.version>1.2.1</ottc.notif.version>
+		<ottc.ui.version>2.0-RC04</ottc.ui.version>
 		
 		<ottc.generic-ui.version>3.1.1-RC03</ottc.generic-ui.version>
-
-		<ottc.webmode.version>4.2.25</ottc.webmode.version>
 		
-		<toutatice.dafpic.version>4.2.26</toutatice.dafpic.version>
-		
+		<carto.nat.version>1.2</carto.nat.version>
+		 
 		<ottc.monitoring.version>2.1</ottc.monitoring.version>
 		<javamelody.version>1.82.0</javamelody.version>	
 	</properties>
@@ -135,9 +136,24 @@
 
 		<!-- Addons -->
 		<dependency>
+			<groupId>opentoutatice-ecm.collab-tools</groupId>
+			<artifactId>opentoutatice-collab-tools-ecm</artifactId>
+			<version>${ottc.collab.version}</version>
+		</dependency>		
+		<dependency>
 			<groupId>opentoutatice-ecm.elasticsearch</groupId>
 			<artifactId>opentoutatice-addon-elasticsearch-ecm</artifactId>
 			<version>${ottc.es.version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>opentoutatice-ecm.elasticsearch-customizer</groupId>
+			<artifactId>opentoutatice-addon-elasticsearch-customizer-ecm</artifactId>
+			<version>${ottc.es.custom.version}</version>
+		</dependency>		
+		<dependency>
+			<groupId>opentoutatice-ecm.file-based-naming</groupId>
+			<artifactId>opentoutatice-addon-file-based-naming-ecm</artifactId>
+			<version>${ottc.filenaming.version}</version>
 		</dependency>
 
 		<dependency>
@@ -151,6 +167,11 @@
 			<artifactId>opentoutatice-generic-ui-service-ecm</artifactId>
 			<version>${ottc.generic-ui.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>opentoutatice-ecm.ui</groupId>
+			<artifactId>opentoutatice-addon-simple-ui-ecm</artifactId>
+			<version>${ottc.ui.version}</version>
+		</dependency>		
 
 		<dependency>
 			<groupId>opentoutatice-ecm.monitoring</groupId>
@@ -159,25 +180,9 @@
 		</dependency>
 
 		<dependency>
-			<groupId>opentoutatice-ecm.web-mode</groupId>
-			<artifactId>opentoutatice-web-mode-ecm</artifactId>
-			<version>${ottc.webmode.version}</version>
-		</dependency>
-		
-		<dependency>
-			<groupId>toutatice-services.dafpic</groupId>
-			<artifactId>toutatice-dafpic-ecm</artifactId>
-			<version>${toutatice.dafpic.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>toutatice-services.dafpic</groupId>
-			<artifactId>toutatice-dafpic-es</artifactId>
-			<version>${toutatice.dafpic.version}</version>
-		</dependency>		
-		<dependency>
-			<groupId>toutatice-services.dafpic</groupId>
-			<artifactId>toutatice-dafpic-studio</artifactId>
-			<version>${toutatice.dafpic.version}</version>
+			<groupId>toutatice-services.carto-nat</groupId>
+			<artifactId>toutatice-carto-nat-ecm</artifactId>
+			<version>${carto.nat.version}</version>
 		</dependency>
 
 		<!-- DAM -->

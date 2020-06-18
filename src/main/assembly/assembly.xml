@@ -29,24 +29,26 @@
 				</include>
 
 				<!-- Add ons -->
+				<include>opentoutatice-ecm.collab-tools:opentoutatice-collab-tools-ecm:jar:${ottc.collab.version}
+				</include>				
 				<include>opentoutatice-ecm.elasticsearch:opentoutatice-addon-elasticsearch-ecm:jar:${ottc.es.version}
 				</include>
+				<include>opentoutatice-ecm.elasticsearch-customizer:opentoutatice-addon-elasticsearch-customizer-ecm:jar:${ottc.es.custom.version}
+				</include>				
+				<include>opentoutatice-ecm.file-based-naming:opentoutatice-addon-file-based-naming-ecm:jar:${ottc.filenaming.version}
+				</include>
+								
 				<include>opentoutatice-ecm.portal-notifications:opentoutatice-addon-portal-notifications-ecm:jar:${ottc.notif.version}
 				</include>
 				<include>opentoutatice-ecm.generic-ui-service:opentoutatice-generic-ui-service-ecm:jar:${ottc.generic-ui.version}
 				</include>
-				<include>opentoutatice-ecm.web-mode:opentoutatice-web-mode-ecm:jar:${ottc.webmode.version}
-                </include>
+				<include>opentoutatice-ecm.ui:opentoutatice-addon-simple-ui-ecm:jar:${ottc.ui.version}
+				</include>				
+
 				<include>opentoutatice-ecm.monitoring:opentoutatice-monitoring-ecm:jar:${ottc.monitoring.version}
                 </include>
-
-				<!-- Studio -->
-				<include>toutatice-services.dafpic:toutatice-dafpic-ecm:jar:${toutatice.dafpic.version}
-                </include>
-				<include>toutatice-services.dafpic:toutatice-dafpic-es:jar:${toutatice.dafpic.version}
-                </include>
-				<include>toutatice-services.dafpic:toutatice-dafpic-studio:jar:${toutatice.dafpic.version}
-                </include>
+                
+                <include>toutatice-services.carto-nat:toutatice-carto-nat-ecm:jar:${carto.nat.version}</include>
 
 				<!-- Login & SSO -->
 				<include>org.nuxeo.ecm.platform:nuxeo-platform-login-portal-sso:jar:${nuxeo.version}

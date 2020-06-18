@@ -13,6 +13,13 @@
 				<param name="param2">${nuxeo.permalink.service.param2}</param>
 			</parameters>
 		</permalink>
-	</extension>
-	
+
+		<permalink name="viaeducdoc" classpath="fr.toutatice.services.unum.ecm.service.permalink.PermalinkDocumentation" default="false" enabled="true">
+			<host>${nuxeo.unum.docviaeduc.host}</host>
+			<parameters>
+				<param name="param1">${nuxeo.unum.docviaeduc.param}</param>
+			</parameters>
+		</permalink>
+
+	</extension>	
 </component>

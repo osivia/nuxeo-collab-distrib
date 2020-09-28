@@ -14,7 +14,6 @@
       	<field>note:note</field>
         <field>webp:content</field>
         <field>webc:welcomeText</field>
-        <field>comment:comment</field>     
         <field>ttcth:message</field>
         <field>unum:scenario</field>
         <field>mail:mail</field>

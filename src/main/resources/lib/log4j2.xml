@@ -326,6 +326,15 @@ APPENDERS CONFIGURATION:
  	<Logger name="fr.toutatice.userworkspaces" level="info" additivity="false">
       <AppenderRef ref="USERWORKSPACES" />
     </Logger>
+    
+<!-- Fulltext Reindexation -->
+<!-- Both packages (es & work) must be activated -->
+	<Logger name="fr.toutatice.ecm.fulltext.reindex" level="info" additivity="false">
+      <AppenderRef ref="MIGRATION" />
+    </Logger>
+    <Logger name="org.nuxeo.ecm.core.work.AbstractWork" level="info" additivity="true">
+      <AppenderRef ref="MIGRATION" />
+    </Logger>
 
     <Logger name="nuxeo-error-log" level="trace">
       <AppenderRef ref="ERROR-FILE" />

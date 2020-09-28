@@ -27,13 +27,10 @@
 				<#if "${nuxeo.db.type}" == "postgresql">
           			<fulltext disabled="${nuxeo.vcs.fulltext.disabled}" searchDisabled="${nuxeo.vcs.fulltext.search.disabled}" analyzer="${nuxeo.vcs.fulltext.search.analyzer}">
           				<index name="default">
-            				<!-- all props implied -->
+    						<fieldType>blob</fieldType>
           				</index>
           				<index name="title">
             				<field>dc:title</field>
-          				</index>
-          				<index name="description">
-            				<field>dc:description</field>
           				</index>
         			</fulltext>
 				</#if>

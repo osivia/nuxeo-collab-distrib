@@ -37,6 +37,7 @@
             <plugin>ANONYMOUS_AUTH</plugin>
         </replacementChain>
     </specificAuthenticationChain>
+    
     <specificAuthenticationChain name="FatParentEleve">
         <urlPatterns>
                 <url>(.*)/.*plateforme-d-assistance/dossierfat.*</url>

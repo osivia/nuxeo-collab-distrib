@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<component name="acrennes-notifications.repository-config">
+
+	<require>default-repository-config</require>
+
+	  <extension target="org.nuxeo.runtime.datasource" point="datasources">
+	    <datasource name="jdbc/repository_notificationRepo" xaDataSource="org.postgresql.xa.PGXADataSource"
+	      maxPoolSize="100" minPoolSize="5" blockingTimeoutMillis="10000">
+        				
+	        <property name="ServerName">${opentoutatice.notifs.db.host}</property>
+	        <property name="PortNumber">${opentoutatice.notifs.db.port}</property>
+	        <property name="DatabaseName">${opentoutatice.notifs.db.name}</property>
+	        <property name="User">${opentoutatice.notifs.db.user}</property>
+	        <property name="Password">${opentoutatice.notifs.db.password}</property>		
+	        
+	    </datasource>
+	  </extension>
+
+
+	<extension target="org.nuxeo.ecm.core.storage.sql.RepositoryService"
+		point="repository">
+		
+		
+		<repository name="notificationRepo"
+			factory="org.nuxeo.ecm.core.storage.sql.ra.PoolingRepositoryFactory">
+			
+			<!-- Always redefine pool to be taken into account when merging Repository contributions -->
+			<pool minPoolSize="${nuxeo.vcs["min-pool-size"]}" maxPoolSize="${nuxeo.vcs["max-pool-size"]}"
+        		blockingTimeoutMillis="${nuxeo.vcs["blocking-timeout-millis"]}" idleTimeoutMinutes="${nuxeo.vcs["idle-timeout-minutes"]}" />
+	
+			<binaryStore path="${opentoutatice.notifs.binaries}" />
+	
+			<schema>
+				<field type="largetext">note</field>
+				<field type="largetext">relatedtext</field>
+				<field type="largetext">webp:content</field>
+				<field type="largetext">webc:welcomeText</field>
+				<field type="largetext">comment:comment</field>
+				<field type="largetext">post</field>
+				<field type="largetext">mail:mail</field>
+			</schema>
+			
+			<indexing>
+				<#if "${nuxeo.db.type}" == "postgresql">
+          			<fulltext disabled="${nuxeo.vcs.fulltext.disabled}" searchDisabled="${nuxeo.vcs.fulltext.search.disabled}" analyzer="${nuxeo.vcs.fulltext.search.analyzer}">
+          				<index name="default">
+            				<!-- all props implied -->
+          				</index>
+          				<index name="title">
+            				<field>dc:title</field>
+          				</index>
+          				<index name="description">
+            				<field>dc:description</field>
+          				</index>
+        			</fulltext>
+				</#if>
+			</indexing>
+		</repository>
+	</extension>
+	
+
+
+</component>

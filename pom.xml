@@ -12,7 +12,7 @@
 	<properties>
 		<nuxeo.version>6.1.3</nuxeo.version>
 		<opentoutatice.version>4.7.42</opentoutatice.version>
-		<ottc.es.version>4.7.26</ottc.es.version>
+		<ottc.es.version>4.7-SNAPSHOT</ottc.es.version>
 		<ottc.collab.version>4.7.33</ottc.collab.version>
 		<ottc.filenaming.version>4.7.17</ottc.filenaming.version>
 		<ottc.file.versioning.version>4.7.17</ottc.file.versioning.version>
@@ -39,7 +39,7 @@
 		<ottc.migration.version>4.7.2</ottc.migration.version>
 
 		<!-- Add-ons métier -->
-		<acrennes.version>4.1.16</acrennes.version>
+		<acrennes.version>4.1-SNAPSHOT</acrennes.version>
 
 		<shortname.version>1.0.4</shortname.version>
 
@@ -60,7 +60,7 @@
 		<simpleblog.version>1.0.0</simpleblog.version>
 
 		<!-- Logs -->
-		<log4j.version>2.8</log4j.version>
+		<log4j.version>2.16.0</log4j.version>
 		<javamelody.version>1.82.0</javamelody.version>
 	</properties>
 

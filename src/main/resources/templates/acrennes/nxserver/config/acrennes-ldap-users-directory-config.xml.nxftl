@@ -24,7 +24,7 @@
 
     <directory name="userLdapDirectory">
       <server>default</server>
-      <schema>opentoutatice_user</schema>
+      <schema>acrennes_user</schema>
       <idField>username</idField>
       <passwordField>password</passwordField>
 
@@ -53,6 +53,7 @@
       <fieldMapping name="lastName">${nuxeo.ldap.user.mapping.lastname}</fieldMapping>
       <fieldMapping name="company">${nuxeo.ldap.user.mapping.company}</fieldMapping>
       <fieldMapping name="email">${nuxeo.ldap.user.mapping.email}</fieldMapping>
+      <fieldMapping name="pseudonymizedId">${nuxeo.ldap.user.mapping.opaqueid}</fieldMapping>
       <fieldMapping name="groups">${nuxeo.ldap.user.mapping.groups}</fieldMapping>
       
       <references>

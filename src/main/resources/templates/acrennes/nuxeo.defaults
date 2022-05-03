@@ -22,6 +22,7 @@ nuxeo.ldap.user.mapping.lastname=sn
 nuxeo.ldap.user.mapping.company=rne
 nuxeo.ldap.user.mapping.email=mail
 nuxeo.ldap.user.mapping.groups=ENTPersonProfils
+nuxeo.ldap.user.mapping.opaqueid=ENTPersonUid
 nuxeo.ldap.group.searchBaseDn=ou=groupes,dc=ent-bretagne,dc=fr
 #nuxeo.ldap.group.searchScope
 #nuxeo.ldap.group.searchFilter=(|(objectClass=ENTProfil)(objectClass=ENTRoleAppli))

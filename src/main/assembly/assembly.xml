@@ -75,15 +75,15 @@
 				<include>opentoutatice-ecm.sharing:opentoutatice-sharing:jar:${ottc.sharing.version}</include>
 
 				<!-- Ac rennes -->
-				<include>toutatice-ecm.acrennes:toutatice-ecm-acrennes-adaptor:jar:${acrennes.version}
+				<include>fr.toutatice.ecm.acrennes:toutatice-ecm-acrennes-adaptor:jar:${acrennes.version}
                 </include>
-				<include>toutatice-ecm.acrennes:toutatice-ecm-acrennes-automation:jar:${acrennes.version}
+				<include>fr.toutatice.ecm.acrennes:toutatice-ecm-acrennes-automation:jar:${acrennes.version}
                 </include>
-				<include>toutatice-ecm.acrennes:toutatice-ecm-acrennes-core:jar:${acrennes.version}
+				<include>fr.toutatice.ecm.acrennes:toutatice-ecm-acrennes-core:jar:${acrennes.version}
                 </include>
-				<include>toutatice-ecm.acrennes:toutatice-ecm-acrennes-studio:jar:${acrennes.version}
+				<include>fr.toutatice.ecm.acrennes:toutatice-ecm-acrennes-studio:jar:${acrennes.version}
                 </include>
-				<include>toutatice-ecm.acrennes:toutatice-ecm-acrennes-web:jar:${acrennes.version}
+				<include>fr.toutatice.ecm.acrennes:toutatice-ecm-acrennes-web:jar:${acrennes.version}
                 </include>
 
 				<include>toutatice-acrennes-addons.shortname:toutatice-acrennes-addons-shortname-ecm:jar:${shortname.version}
@@ -106,7 +106,7 @@
                 </include>
 				<include>toutatice-services.p1d:toutatice-p1d-ecm:jar:${p1d.version}
                 </include>
-				<include>toutatice-services.publidoc:toutatice-publidoc-ecm:jar:${publidoc.version}
+				<include>fr.toutatice.publidoc:toutatice-publidoc-ecm:jar:${publidoc.version}
                 </include>
 				<include>toutatice-services.uar:toutatice-uar-ecm:jar:${uar.version}
                 </include>

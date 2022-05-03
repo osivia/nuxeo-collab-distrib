@@ -12,7 +12,7 @@
 	<properties>
 		<nuxeo.version>6.1.3</nuxeo.version>
 		<opentoutatice.version>4.7.42</opentoutatice.version>
-		<ottc.es.version>4.7-SNAPSHOT</ottc.es.version>
+		<ottc.es.version>4.8-SNAPSHOT</ottc.es.version>
 		<ottc.collab.version>4.7-SNAPSHOT</ottc.collab.version>
 		<ottc.filenaming.version>4.7.17</ottc.filenaming.version>
 		<ottc.file.versioning.version>4.7.17</ottc.file.versioning.version>
@@ -23,7 +23,7 @@
 		<ottc.generic-ui.version>4.7.17</ottc.generic-ui.version>
 
 		<ottc.es.custom.version>4.7.17.1</ottc.es.custom.version>
-		<ottc.procedure.version>4.7-SNAPSHOT</ottc.procedure.version>
+		<ottc.procedure.version>4.7.17</ottc.procedure.version>
 		<!-- <ottc.checkin.version>4.6.1</ottc.checkin.version> -->
 		<!-- <ottc.pad.version>4.6</ottc.pad.version> -->
 		<ottc.news.version>4.7.17</ottc.news.version>
@@ -39,7 +39,7 @@
 		<ottc.migration.version>4.7.2</ottc.migration.version>
 
 		<!-- Add-ons métier -->
-		<acrennes.version>4.1-SNAPSHOT</acrennes.version>
+		<acrennes.version>5.0.2-RC01-SNAPSHOT</acrennes.version>
 
 		<shortname.version>1.0.4</shortname.version>
 
@@ -52,7 +52,7 @@
 		<merens.version>1.5.2</merens.version>
 		<mpe.version>4.1.0</mpe.version>
 		<p1d.version>1.6.8</p1d.version>
-		<publidoc.version>4.3.0</publidoc.version>
+		<publidoc.version>4.3.1</publidoc.version>
 		<uar.version>4.3.4</uar.version>
 		<ACRENNES3.version>2.5.1</ACRENNES3.version>
 		<ACRENNES4.version>2.5.5</ACRENNES4.version>
@@ -289,27 +289,27 @@
 
 		<!-- Acrennes -->
 		<dependency>
-			<groupId>toutatice-ecm.acrennes</groupId>
+			<groupId>fr.toutatice.ecm.acrennes</groupId>
 			<artifactId>toutatice-ecm-acrennes-adaptor</artifactId>
 			<version>${acrennes.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>toutatice-ecm.acrennes</groupId>
+			<groupId>fr.toutatice.ecm.acrennes</groupId>
 			<artifactId>toutatice-ecm-acrennes-automation</artifactId>
 			<version>${acrennes.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>toutatice-ecm.acrennes</groupId>
+			<groupId>fr.toutatice.ecm.acrennes</groupId>
 			<artifactId>toutatice-ecm-acrennes-core</artifactId>
 			<version>${acrennes.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>toutatice-ecm.acrennes</groupId>
+			<groupId>fr.toutatice.ecm.acrennes</groupId>
 			<artifactId>toutatice-ecm-acrennes-web</artifactId>
 			<version>${acrennes.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>toutatice-ecm.acrennes</groupId>
+			<groupId>fr.toutatice.ecm.acrennes</groupId>
 			<artifactId>toutatice-ecm-acrennes-studio</artifactId>
 			<version>${acrennes.version}</version>
 		</dependency>
@@ -371,7 +371,7 @@
 			<version>${p1d.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>toutatice-services.publidoc</groupId>
+			<groupId>fr.toutatice.publidoc</groupId>
 			<artifactId>toutatice-publidoc-ecm</artifactId>
 			<version>${publidoc.version}</version>
 		</dependency>

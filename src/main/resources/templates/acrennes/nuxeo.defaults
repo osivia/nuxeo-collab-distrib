@@ -108,3 +108,7 @@ acrennes.salledeclasses.template=/default/templates/espace-ecole-salle
 
 # Soft delete
 nuxeo.soft.delete.enabled=false
+
+# Periodic notifications
+org.opentoutatice.notifications.logopath=/opt/nuxeo/nxserver/nuxeo.war/img/AcadRennes20-logoC-SITE130pp.jpg
+org.opentoutatice.notifications.template=periodicEmailSend

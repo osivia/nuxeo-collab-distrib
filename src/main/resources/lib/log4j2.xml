@@ -201,7 +201,24 @@ APPENDERS CONFIGURATION:
           <IfLastModified age="P7D" />
         </Delete>
       </DefaultRolloverStrategy>
-    </RollingFile>  
+    </RollingFile>
+    
+	<RollingFile name="NOTIFICATIONS" fileName="${sys:nuxeo.log.dir}/notifications.log" 
+		filePattern="${sys:nuxeo.log.dir}/$${date:yyyy-MM}/notifications-%d{dd-MM-yyyy}-%i.log.zip">
+      <PatternLayout>
+        <Pattern>%d{ISO8601} %-5p [%t] [%c] %m%n</Pattern>
+      </PatternLayout>
+      <Policies>
+        <TimeBasedTriggeringPolicy/>
+        <SizeBasedTriggeringPolicy size="20 MB" />
+      </Policies>
+      <DefaultRolloverStrategy min="1" max="5" fileIndex="max">
+        <Delete basePath="${sys:nuxeo.log.dir}" maxDepth="2">
+          <IfFileName glob="*/notifications-*.log.zip" />
+          <IfLastModified age="P7D" />
+        </Delete>
+      </DefaultRolloverStrategy>
+    </RollingFile>    
     
     <RollingFile name="ESvsVCS" fileName="${sys:nuxeo.log.dir}/esVcs.log" filePattern="${sys:nuxeo.log.dir}/$${date:yyyy-MM}/esVcs-%d{dd-MM-yyyy}-%i.log.zip">
       <PatternLayout>
@@ -331,6 +348,12 @@ APPENDERS CONFIGURATION:
  	<Logger name="fr.toutatice.userworkspaces" level="info" additivity="false">
       <AppenderRef ref="USERWORKSPACES" />
     </Logger>
+
+ 	<Logger name="fr.toutatice.notifications" level="debug" additivity="false">
+      <AppenderRef ref="NOTIFICATIONS" />
+    </Logger>
+ 
+    
 
     <Logger name="nuxeo-error-log" level="trace">
       <AppenderRef ref="ERROR-FILE" />

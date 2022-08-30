@@ -6,7 +6,7 @@
   <extension target="org.nuxeo.elasticsearch.ElasticSearchComponent"
     point="elasticSearchIndex">
     
-    <elasticSearchIndex name="${opentoutatice.notifs.indexName}" type="doc" repository="notificationRepo">
+    <elasticSearchIndex name="${opentoutatice.notifications.indexName}" type="doc" repository="${opentoutatice.notifications.repository}">
       <fetchFromSource>
         <include>*</include>
         <exclude>ecm:binarytext</exclude>
